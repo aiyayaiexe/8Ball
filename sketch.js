@@ -4,7 +4,7 @@ let ballnum = 3;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
 }
 
 function draw() {
@@ -12,12 +12,10 @@ function draw() {
   noStroke();
 
   for(let i = 0; i < arraycol.length; i++){
-    draw8Ball(arraynum[i], arraycol[i], width/arraycol.length * i + 60, 300);
+    draw8Ball(arraynum[i], arraycol[i], width/arraycol.length * (i + 0.5), height/2); 
   }
-  
- // draw8Ball(arraynum[ballnum], arraycol[ballnum], 300, 300);
-  
 }
+
 function draw8Ball(num, col, x, y)
 {
 
@@ -27,5 +25,9 @@ function draw8Ball(num, col, x, y)
   circle(x, y-10, 50);
   textSize(30);
   fill("black");
-  text(num, x, y);
+  text(num, x, y - 10);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
